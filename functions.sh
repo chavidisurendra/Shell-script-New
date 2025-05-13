@@ -65,3 +65,10 @@ EOF
  
 # Call the Node Exporter setup function
 setup_node_exporter
+
+
+timestamp = $(daate)
+scriptname=$($0 | cut -d "." -f1)
+Logfile=/tmp/$scriptname-$timestamp.log
+
+sudo dnf install mysql -y &>>Logfile
