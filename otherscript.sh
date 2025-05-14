@@ -11,3 +11,11 @@ then
 else
    echo" please make sure $sourcedirectory exist"
 fi
+
+files=$( find $sourcedirectory -name "*.log" -mtime +14)
+
+while IFS=read -r line
+do
+  echo"deleting the files: $line"
+  rm -rf $line
+done <<< $files
